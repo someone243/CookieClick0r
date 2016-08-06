@@ -38,20 +38,35 @@ namespace CookieClicker
 
         private void tickSign(object state)
         {
-           con.Send("b",0,25,36,385,$"Cookies: {CookiesDisplay}",1);
+            con.Send("b", 0, 25, 36, 385, $"Cookies: {CookiesDisplay}", 1);
         }
 
         private double _cps;
-        public double cps {
+        public double cps
+        {
             get
             {
                 RecalculateCps(); return _cps;
             }
-            set { _cps = value; } }
+            set { _cps = value; }
+        }
 
         private void RecalculateCps()
         {
-            cps = BCursor.cps + BGrandma.cps + BFarm.cps;
+            cps = BCursor.cps
+                + BGrandma.cps
+                + BFarm.cps
+                + BMine.cps
+                + BFactory.cps
+                + BBank.cps
+                + BTemple.cps
+                + BWizardTower.cps
+                + BShipment.cps
+                + BAlchemyLab.cps
+                + BPortal.cps
+                + BTimeMachine.cps
+                + BAntimatterCondenser.cps
+                + BPrism.cps;
         }
         /// <summary>
         /// Disposes resources used by the form.
@@ -272,7 +287,7 @@ namespace CookieClicker
                         string player = users[m.GetInt(0)].username;
                         if (m.GetInt(1) == 208 & m.GetInt(2) == 16)
                         {
-                             switch (users[m.GetInt(0)].buying.Name)
+                            switch (users[m.GetInt(0)].buying.Name)
                             {
                                 case "BCursor":
                                     if (cookies > BCursor.cost)
@@ -294,6 +309,83 @@ namespace CookieClicker
                                     {
                                         cookies -= BFarm.cost;
                                         BFarm.Buy(1);
+                                    }
+                                    break;
+                                case "BMine":
+                                    if (cookies > BMine.cost)
+                                    {
+                                        cookies -= BMine.cost;
+                                        BMine.Buy(1);
+                                    }
+                                    break;
+                                case "BFactory":
+                                    if (cookies > BFactory.cost)
+                                    {
+                                        cookies -= BFactory.cost;
+                                        BFactory.Buy(1);
+                                    }
+                                    break;
+                                case "BBank":
+                                    if (cookies > BBank.cost)
+                                    {
+                                        cookies -= BBank.cost;
+                                        BBank.Buy(1);
+                                    }
+                                    break;
+                                case "BTemple":
+                                    if (cookies > BTemple.cost)
+                                    {
+                                        cookies -= BTemple.cost;
+                                        BTemple.Buy(1);
+                                    }
+                                    break;
+                                case "BWizardTower":
+                                    if (cookies > BWizardTower.cost)
+                                    {
+                                        cookies -= BWizardTower.cost;
+                                        BWizardTower.Buy(1);
+                                    }
+                                    break;
+                                case "BShipment":
+                                    if (cookies > BShipment.cost)
+                                    {
+                                        cookies -= BShipment.cost;
+                                        BShipment.Buy(1);
+                                    }
+                                    break;
+                                case "BAlchemyLab":
+                                    if (cookies > BAlchemyLab.cost)
+                                    {
+                                        cookies -= BAlchemyLab.cost;
+                                        BAlchemyLab.Buy(1);
+                                    }
+                                    break;
+                                case "BPortal":
+                                    if (cookies > BPortal.cost)
+                                    {
+                                        cookies -= BPortal.cost;
+                                        BPortal.Buy(1);
+                                    }
+                                    break;
+                                case "BTimeMachine":
+                                    if (cookies > BTimeMachine.cost)
+                                    {
+                                        cookies -= BTimeMachine.cost;
+                                        BTimeMachine.Buy(1);
+                                    }
+                                    break;
+                                case "BAntimatterCondenser":
+                                    if (cookies > BAntimatterCondenser.cost)
+                                    {
+                                        cookies -= BAntimatterCondenser.cost;
+                                        BAntimatterCondenser.Buy(1);
+                                    }
+                                    break;
+                                case "BPrism":
+                                    if (cookies > BPrism.cost)
+                                    {
+                                        cookies -= BPrism.cost;
+                                        BPrism.Buy(1);
                                     }
                                     break;
                                     //case "BCursor":
@@ -322,6 +414,102 @@ namespace CookieClicker
                                 if (m.GetInt(2) == 64)
                                 {
                                     users[m.GetInt(0)].buying = typeof(BCursor);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 384)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BGrandma);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 416)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BFarm);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 448)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BMine);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 480)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BFactory);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 512)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BBank);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 544)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BTemple);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 576)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BWizardTower);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 608)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BShipment);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 640)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BAlchemyLab);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 672)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BPortal);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 704)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BTimeMachine);
+                                    com($"teleport {player} 14 3");
+                                }
+                            }
+                            if (m.GetInt(1) == 736)
+                            {
+                                if (m.GetInt(2) == 64)
+                                {
+                                    users[m.GetInt(0)].buying = typeof(BPrism);
                                     com($"teleport {player} 14 3");
                                 }
                             }
