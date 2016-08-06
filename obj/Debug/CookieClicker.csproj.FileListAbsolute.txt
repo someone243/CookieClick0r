@@ -1,0 +1,21 @@
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\bin\Debug\CookieClicker.exe.config
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\bin\Debug\CookieClicker.exe
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\bin\Debug\CookieClicker.pdb
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\bin\Debug\PlayerIOClient.dll
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\obj\Debug\CookieClicker.csprojResolveAssemblyReference.cache
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\obj\Debug\CookieClicker.CookieClicker.resources
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\obj\Debug\CookieClicker.Properties.Resources.resources
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\obj\Debug\CookieClicker.csproj.GenerateResource.Cache
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\obj\Debug\CookieClicker.exe
+C:\Users\вячеслав\Source\Repos\CookieClicker\CookieClicker\CookieClicker\obj\Debug\CookieClicker.pdb
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\bin\Debug\CookieClicker.exe.config
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\obj\Debug\CookieClicker.exe
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\obj\Debug\CookieClicker.pdb
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\bin\Debug\CookieClicker.exe
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\bin\Debug\CookieClicker.pdb
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\bin\Debug\JetBrains.Annotations.dll
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\bin\Debug\JetBrains.Annotations.xml
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\obj\Debug\CookieClicker.csprojResolveAssemblyReference.cache
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\obj\Debug\CookieClicker.CookieClicker.resources
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\obj\Debug\CookieClicker.Properties.Resources.resources
+C:\Users\вячеслав\Desktop\Новая папка\CookieClicker\obj\Debug\CookieClicker.csproj.GenerateResource.Cache
