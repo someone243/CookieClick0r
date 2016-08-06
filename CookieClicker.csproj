@@ -69,9 +69,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Achiev.cs" />
+    <Compile Include="BAlchemyLab.cs" />
+    <Compile Include="BAntimatterCondenser.cs" />
+    <Compile Include="BBank.cs" />
+    <Compile Include="BFactory.cs" />
     <Compile Include="BFarm.cs" />
     <Compile Include="BGrandma.cs" />
     <Compile Include="BCursor.cs" />
+    <Compile Include="BMine.cs" />
+    <Compile Include="BPortal.cs" />
+    <Compile Include="BPrism.cs" />
+    <Compile Include="BShipment.cs" />
+    <Compile Include="BTemple.cs" />
+    <Compile Include="BTimeMachine.cs" />
+    <Compile Include="BWizardTower.cs" />
     <Compile Include="CookieClicker.cs">
       <SubType>Form</SubType>
     </Compile>
