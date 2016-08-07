@@ -52,7 +52,7 @@ namespace CookieClicker
 
             quantity += qt;
             quantity = quantity < 0 ? 0 : quantity;
-            cost = (double)(initCost * Math.Pow(1.15, quantity));
+            cost = initCost * Math.Pow(1.15, quantity);
             RecalculateCpS();
             if (quantity > 0) { Achiev.Win("Click", "Have 1 cursor.");}
             if (quantity > 1) { Achiev.Win("Double-click", "Have 2 cursors."); }

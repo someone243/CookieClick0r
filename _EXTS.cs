@@ -1,11 +1,13 @@
+using System;
 using JetBrains.Annotations;
 namespace CookieClicker
 {
     public static class _EXTS
     {
         [UsedImplicitly]
-        public static string FormatNumber(this double number)
+        public static string FormatNumber(this double numberz)
         {
+           double number = Math.Round(numberz);
             if (number >= 1e30)
                 return "It's time to stop playing";
             if (number >= 1e27)
