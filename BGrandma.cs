@@ -5,11 +5,11 @@ namespace CookieClicker
     public static class BGrandma
     {
 
-        public static int quantity = 0;
+        public static double quantity = 0;
         public static double initCps = 1;
-        public static int initCost = 100;
+        public static double initCost = 100;
         public static double cps = 0;
-        public static int cost = 100;
+        public static double cost = 100;
         public static bool[] upgrades = new bool[1000];
         public static void Buy(int qt)
         {

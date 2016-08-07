@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,13 +33,19 @@ namespace CookieClicker
 
         private void tickCps(object state)
         {
+
+            con.Send("b", 0, 25, 36, 385, $"Cookies: {CookiesDisplay}", 1);
             cookies += cps / 10;
         }
         System.Threading.Timer signTick;
 
         private void tickSign(object state)
         {
-            con.Send("b", 0, 25, 36, 385, $"Cookies: {CookiesDisplay}", 1);
+            if (toPlaceQueue.Count > 0)
+            {
+                Block b = toPlaceQueue.Dequeue();
+                con.Send("b", 0, b.x, b.y, b.id, b.extra);
+            }
         }
 
         private double _cps;
@@ -51,6 +58,7 @@ namespace CookieClicker
             set { _cps = value; }
         }
 
+        Queue<Block> toPlaceQueue = new Queue<Block>();
         private void RecalculateCps()
         {
             cps = BCursor.cps
@@ -211,7 +219,7 @@ namespace CookieClicker
                     isConnected = true;
                     connect_Button.Text = "Disconnect";
                     cpsTick.Change(0, 100);
-                    signTick.Change(5000, 100);
+                    signTick.Change(5000, 20);
                 }
                 catch (PlayerIOError oops)
                 {
@@ -294,7 +302,8 @@ namespace CookieClicker
                                     {
                                         cookies -= BCursor.cost;
                                         BCursor.Buy(1);
-                                        con.Send("b", 0, 27, 36, 385, $"Cookies per second: {cps}", 1);
+                                        toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}")); /*  toPlaceQueue.Enqueue(new Block(27,36,385, $"Cookies per second: {cps}"));*/
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Cursor (cost: {BCursor.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BGrandma":
@@ -302,6 +311,8 @@ namespace CookieClicker
                                     {
                                         cookies -= BGrandma.cost;
                                         BGrandma.Buy(1);
+                                        toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Grandma (cost: {BGrandma.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BFarm":
@@ -309,6 +320,8 @@ namespace CookieClicker
                                     {
                                         cookies -= BFarm.cost;
                                         BFarm.Buy(1);
+                                        toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Farm (cost: {BFarm.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BMine":
@@ -316,6 +329,8 @@ namespace CookieClicker
                                     {
                                         cookies -= BMine.cost;
                                         BMine.Buy(1);
+                                        toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Mine (cost: {BMine.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BFactory":
@@ -323,6 +338,8 @@ namespace CookieClicker
                                     {
                                         cookies -= BFactory.cost;
                                         BFactory.Buy(1);
+                                        toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Factory (cost: {BFactory.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BBank":
@@ -330,62 +347,74 @@ namespace CookieClicker
                                     {
                                         cookies -= BBank.cost;
                                         BBank.Buy(1);
+                                        toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Bank (cost: {BBank.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BTemple":
                                     if (cookies > BTemple.cost)
                                     {
                                         cookies -= BTemple.cost;
-                                        BTemple.Buy(1);
+                                        BTemple.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Temple (cost: {BTemple.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BWizardTower":
                                     if (cookies > BWizardTower.cost)
                                     {
                                         cookies -= BWizardTower.cost;
-                                        BWizardTower.Buy(1);
+                                        BWizardTower.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Wizard Tower (cost: {BWizardTower.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BShipment":
                                     if (cookies > BShipment.cost)
                                     {
                                         cookies -= BShipment.cost;
-                                        BShipment.Buy(1);
+                                        BShipment.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Shipment (cost: {BShipment.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BAlchemyLab":
                                     if (cookies > BAlchemyLab.cost)
                                     {
                                         cookies -= BAlchemyLab.cost;
-                                        BAlchemyLab.Buy(1);
+                                        BAlchemyLab.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Alchemy Lab (cost: {BAlchemyLab.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BPortal":
                                     if (cookies > BPortal.cost)
                                     {
                                         cookies -= BPortal.cost;
-                                        BPortal.Buy(1);
+                                        BPortal.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Portal (cost: {BPortal.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BTimeMachine":
                                     if (cookies > BTimeMachine.cost)
                                     {
                                         cookies -= BTimeMachine.cost;
-                                        BTimeMachine.Buy(1);
+
+                                        BTimeMachine.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Time Machine (cost: {BTimeMachine.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BAntimatterCondenser":
                                     if (cookies > BAntimatterCondenser.cost)
                                     {
                                         cookies -= BAntimatterCondenser.cost;
-                                        BAntimatterCondenser.Buy(1);
+                                        BAntimatterCondenser.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Antimatter Condenser (cost: {BAntimatterCondenser.cost.FormatNumber()})"));
                                     }
                                     break;
                                 case "BPrism":
                                     if (cookies > BPrism.cost)
                                     {
                                         cookies -= BPrism.cost;
-                                        BPrism.Buy(1);
+                                        BPrism.Buy(1); toPlaceQueue.Enqueue(new Block(27, 36, 385, $"Cookies per second: {cps}"));
+                                        toPlaceQueue.Enqueue(new Block(22, 4, 385, $"Buy Prism (cost: {BPrism.cost.FormatNumber()})"));
+
                                     }
                                     break;
                                     //case "BCursor":
@@ -398,7 +427,7 @@ namespace CookieClicker
                                     //    BCursor.Buy(1);
                                     //    break;
                             }
-
+                            com($"teleport {player} 25 25");
 
                         }
 
@@ -517,6 +546,24 @@ namespace CookieClicker
                     }
                     break;
             }
+        }
+    }
+
+    internal class Block
+    {
+        public int x, y, id;
+        public string extra;
+        public Block(int x, int y, int id)
+        {
+            this.x = x;
+            this.y = y; this.id = id;
+            this.extra = null;
+        }
+        public Block(int x, int y, int id, string extra)
+        {
+            this.x = x;
+            this.y = y; this.id = id;
+            this.extra = extra;
         }
     }
 }
